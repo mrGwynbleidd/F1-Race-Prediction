@@ -1,0 +1,1503 @@
+Понял — пишу прямо в чат, делю на части. Начинаю.
+
+---
+
+# `03_feature_engineering.ipynb` — Часть 1 из 4
+
+---
+
+## CELL 1 — Markdown
+
+```
+# 📊 Notebook 03 — Feature Engineering
+### Formula 1 Race Prediction & Driver Analytics
+
+---
+
+| | |
+|---|---|
+| **Input**    | `data/processed/f1_clean_2018_2026.csv`    |
+| **Output**   | `data/processed/f1_features_2018_2026.csv` |
+| **Previous** | Notebook 02 — Data Cleaning               |
+| **Next**     | Notebook 04 — Exploratory Data Analysis   |
+
+---
+
+## What This Notebook Does
+
+This notebook transforms clean race data into **predictive features** —
+the mathematical language that machine learning models use to make predictions.
+
+**Before feature engineering**, the model only sees raw isolated numbers:
+- `position: 3, points: 15, grid: 2`
+
+**After feature engineering**, it sees meaningful context:
+- `driver_avg_finish_last_3_races: 4.33`  → Is this driver in good form right now?
+- `driver_avg_finish_on_circuit: 2.8`     → Does this driver excel at this circuit?
+- `constructor_reliability: 0.91`          → Is this car likely to finish?
+- `driver_beats_teammate_rate: 0.72`       → Is this driver faster than their teammate?
+
+**Feature engineering is the most critical notebook in this project.**
+This is where Formula 1 domain knowledge is converted into mathematical signals.
+```
+
+---
+
+## CELL 2 — Markdown
+
+```
+## 🗂️ The Four Feature Groups
+
+This notebook creates **19 new features** in 4 groups:
+
+| Group                      | Features | What It Captures                              |
+|----------------------------|----------|-----------------------------------------------|
+| **1. Driver Form**         | 7        | Recent momentum, season standing, reliability |
+| **2. Constructor Form**    | 5        | Team performance, reliability, championship   |
+| **3. Track Performance**   | 5        | Circuit-specific strengths and weaknesses     |
+| **4. Teammate Comparison** | 2        | Driver skill isolated from car performance    |
+
+---
+
+### Why These Four Groups?
+
+**Driver form** captures momentum. A driver on a 3-race podium streak is in a
+different state than one scoring zero points in 3 races.
+
+**Constructor form** captures team dominance. In F1, the car accounts for ~70–80%
+of lap time. Red Bull 2022–2023 or Mercedes 2014–2020 dominance is a real signal.
+
+**Track performance** captures circuit specialization. Monaco requires a completely
+different driving style than Monza. Historical track records are highly predictive.
+
+**Teammate comparison** isolates driver talent from car advantage. Both teammates
+race identical machinery — any performance gap reflects pure driver skill.
+```
+
+---
+
+## CELL 3 — Code (Imports)
+
+```python
+# ============================================================
+# IMPORTS
+# ============================================================
+# pandas  — primary data manipulation library
+# numpy   — numerical operations, NaN handling
+# warnings — suppress non-critical deprecation warnings
+# ============================================================
+
+import pandas as pd
+import numpy as np
+import warnings
+warnings.filterwarnings('ignore')
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.float_format', '{:.3f}'.format)
+
+print('Libraries imported successfully.')
+```
+
+---
+
+## CELL 4 — Markdown
+
+```
+## 📥 Step 1 — Load the Clean Dataset
+
+**Input:** `data/processed/f1_clean_2018_2026.csv`
+**Created by:** Notebook 02 — Data Cleaning
+
+This file contains one row per driver per race entry, with validated:
+- Data types (season, round as integers)
+- Boolean columns: `DNF`, `podium`, `points_finish`
+- Correct grid positions (anomalies fixed in Notebook 02)
+- No duplicate entries
+
+We load it here without any modification — this notebook only ADDS new columns.
+```
+
+---
+
+## CELL 5 — Code (Load Data)
+
+```python
+# ============================================================
+# LOAD DATASET FROM NOTEBOOK 02
+# ============================================================
+
+df = pd.read_csv('../data/processed/f1_clean_2018_2026.csv')
+
+# Store original column count for the final summary
+original_column_count = df.shape[1]
+
+print('Dataset loaded successfully!')
+print(f'  Shape: {df.shape[0]:,} rows x {df.shape[1]} columns')
+print(f'  Seasons: {df.season.min()} — {df.season.max()}')
+print(f'  Unique drivers:      {df.driverId.nunique()}')
+print(f'  Unique constructors: {df.constructorId.nunique()}')
+print(f'  Unique circuits:     {df.circuitId.nunique()}')
+print()
+print('Available columns:')
+print(df.columns.tolist())
+```
+
+---
+
+## CELL 6 — Code (Quick Look)
+
+```python
+# Quick structural look at the data
+df.head(5)
+```
+
+---
+
+## CELL 7 — Markdown (⚠️ Data Leakage — CRITICAL)
+
+```
+## ⚠️ CRITICAL: Preventing Data Leakage
+
+Data leakage is the single most dangerous mistake in machine learning.
+It occurs when information from the **future** is used to predict the **present**.
+
+---
+
+### The F1 Example
+
+We want to compute "Hamilton's average finish in his last 3 races"
+for the **2023 Australian GP (Race 1 of the season)**.
+
+❌ **Leaky approach:** Include the Australian GP result in the average.
+   → The model uses the thing it is trying to predict.
+   → Training accuracy looks perfect. Production accuracy is 0.
+
+✅ **Correct approach:** Only use results from races **before** the Australian GP.
+   → Genuine prediction from past information only.
+
+---
+
+### How We Prevent Leakage
+
+Two pandas techniques, always used together:
+
+**1. Sort chronologically FIRST:**
+```python
+df = df.sort_values(['season', 'round'])
+```
+
+**2. Apply `.shift(1)` before every rolling/expanding calculation:**
+```python
+df.groupby('driverId')['position']
+  .transform(lambda x: x.shift(1).rolling(3).mean())
+```
+
+`shift(1)` moves all values one position forward in time:
+```
+Original: [P3, P1, P5, P2, P7]
+Shifted:  [NaN, P3, P1, P5, P2]
+```
+
+When computing a rolling mean for Race 5 (P7), the window sees [P1, P5, P2] —
+the three races BEFORE it. Race 5 is not included.
+
+> **The Golden Rule:**
+> For any race at time T, every feature must contain only information from before T.
+```
+
+---
+
+## CELL 8 — Code (Sort & Prepare)
+
+```python
+# ============================================================
+# SORT CHRONOLOGICALLY — FOUNDATION OF ALL FEATURES
+# ============================================================
+# Every rolling/expanding calculation depends on this ordering.
+# This line is mandatory before any feature creation.
+# ============================================================
+
+df = df.sort_values(['season', 'round']).reset_index(drop=True)
+
+# ============================================================
+# CREATE HELPER INDICATOR COLUMNS
+# ============================================================
+# Temporary integer (0/1) columns that simplify .sum() aggregations
+# in the cumulative season statistics below.
+# ============================================================
+
+# win: 1 if driver finished P1 (race winner), else 0
+df['win'] = (df['position'] == 1).astype(int)
+
+# Ensure DNF and podium are integer type (not bool)
+df['DNF']    = df['DNF'].astype(int)
+df['podium'] = df['podium'].astype(int)
+
+print('Data sorted and prepared:')
+print(f'  First entry: Season {df.season.iloc[0]}, Round {df.round.iloc[0]}')
+print(f'  Last entry:  Season {df.season.iloc[-1]}, Round {df.round.iloc[-1]}')
+print(f'  Helper columns added: win, DNF (int), podium (int)')
+```
+
+---
+
+*→ Часть 2: Section 1 — Driver Form Features*
+
+# `03_feature_engineering.ipynb` — Часть 2 из 4
+
+---
+
+## CELL 9 — Markdown (Section 1 Header)
+
+```
+---
+
+# 🏎️ SECTION 1 — Driver Form Features
+
+**Goal:** Capture the current momentum, season standing, and reliability of each driver.
+
+---
+
+### Why Driver Form Matters
+
+A driver finishing on the podium 3 races in a row is in a fundamentally different
+state than one who has scored zero points in 3 races:
+- Mechanically: car setup is converging toward peak performance
+- Strategically: the team allocates more development resources to leading drivers
+- Psychologically: confidence and rhythm are real factors in elite sport
+
+---
+
+### Features to Create
+
+| Feature                          | Scope       | Description                          | ML Signal              |
+|----------------------------------|-------------|--------------------------------------|------------------------|
+| `driver_avg_finish_last_3_races` | Last 3 races | Rolling avg finishing position       | Short-term momentum    |
+| `driver_avg_points_last_3_races` | Last 3 races | Rolling avg points scored            | Recent scoring rate    |
+| `driver_avg_grid_last_3_races`   | Last 3 races | Rolling avg qualifying position      | Recent one-lap pace    |
+| `driver_points_current_season`   | This season  | Cumulative championship points       | Season standing        |
+| `driver_wins_current_season`     | This season  | Cumulative race wins                 | Season dominance       |
+| `driver_podiums_current_season`  | This season  | Cumulative podiums                   | Season consistency     |
+| `driver_dnf_rate`                | Career       | Proportion of races not finished     | Reliability tendency   |
+
+---
+
+### Technical Pattern for Rolling Features
+
+All rolling features follow the same leak-free pattern:
+```
+groupby(driver) → shift(1) → rolling(3, min_periods=1) → mean()
+```
+
+**Why `min_periods=1`?**
+If a driver has fewer than 3 past races, still compute an average with
+available data rather than returning NaN for those early races.
+```
+
+---
+
+## CELL 10 — Markdown (1.1 Rolling Features)
+
+```
+### 1.1 Rolling Form: Last 3 Races
+
+**Why 3 races and not 5 or 10?**
+
+3 races ≈ 1 month of racing in F1. This window is:
+- **Short enough** to capture *current* form, not history from 2 seasons ago
+- **Long enough** to smooth out single-race anomalies (safety car lottery,
+  first-lap incidents, random mechanical failures)
+
+A 10-race window would blur a mid-season car upgrade.
+A 1-race window would overreact to a single unlucky retirement.
+3 is the sweet spot for F1 momentum signal.
+```
+
+---
+
+## CELL 11 — Code (Rolling Form Features)
+
+```python
+# ============================================================
+# FEATURE: driver_avg_finish_last_3_races
+# ============================================================
+# What:  Average finishing position in the last 3 completed races.
+# Why:   Captures short-term performance momentum.
+#        A driver averaging P2 in recent races tends to continue well.
+# Note:  LOWER position numbers are BETTER in F1 (P1 = race winner).
+# Leak:  shift(1) excludes the current race result entirely.
+# ============================================================
+
+df['driver_avg_finish_last_3_races'] = (
+    df.groupby('driverId')['position']
+    .transform(lambda x: x.shift(1).rolling(window=3, min_periods=1).mean())
+)
+
+# ============================================================
+# FEATURE: driver_avg_points_last_3_races
+# ============================================================
+# What:  Average championship points scored in the last 3 races.
+# Why:   Complementary to avg_finish — points directly measure
+#        competitive VALUE of a result.
+#        Example: P4 in 2010 = 12 pts. P4 in 2003 = 5 pts.
+#        Points normalize across different scoring era rules.
+#        Also distinguishes a P3 scored cleanly from a P3 inherited
+#        due to safety car chaos with no real performance behind it.
+# ============================================================
+
+df['driver_avg_points_last_3_races'] = (
+    df.groupby('driverId')['points']
+    .transform(lambda x: x.shift(1).rolling(window=3, min_periods=1).mean())
+)
+
+# ============================================================
+# FEATURE: driver_avg_grid_last_3_races
+# ============================================================
+# What:  Average qualifying (grid start) position in the last 3 races.
+# Why:   Qualifying pace and race pace are related but DISTINCT signals.
+#        A driver consistently qualifying P2 is extracting maximum
+#        one-lap performance. This may diverge from race results
+#        (strong qualifier / weak race pace, or vice versa).
+#        The model can learn to weight both signals independently.
+# ============================================================
+
+df['driver_avg_grid_last_3_races'] = (
+    df.groupby('driverId')['grid']
+    .transform(lambda x: x.shift(1).rolling(window=3, min_periods=1).mean())
+)
+
+print('Rolling form features created:')
+print('  ✅ driver_avg_finish_last_3_races')
+print('  ✅ driver_avg_points_last_3_races')
+print('  ✅ driver_avg_grid_last_3_races')
+```
+
+---
+
+## CELL 12 — Code (Verify Rolling Features)
+
+```python
+# ============================================================
+# VERIFICATION: Confirm rolling features are truly leak-free
+# ============================================================
+# Expected behavior for the first 8 races of any driver:
+#
+#   Race 1: NaN  (no past races — correct, no history exists)
+#   Race 2: value from Race 1 only         (min_periods=1 satisfied)
+#   Race 3: average of Race 1 and Race 2
+#   Race 4: average of Races 1, 2, 3
+#   Race 5: average of Races 2, 3, 4       (window now fully rolling)
+#
+# KEY CHECK: the 'avg' column at row N must NEVER equal
+# the 'position' column at row N.
+# ============================================================
+
+sample_driver = df.sort_values('driverId').driverId.iloc[0]
+
+verify_df = df[df.driverId == sample_driver][[
+    'season', 'round', 'position', 'points', 'grid',
+    'driver_avg_finish_last_3_races',
+    'driver_avg_points_last_3_races',
+    'driver_avg_grid_last_3_races'
+]].head(8)
+
+print(f'Verification for driver: {sample_driver}')
+print('The feature columns must reflect PREVIOUS rows only (no leakage):')
+print()
+print(verify_df.to_string(index=False))
+```
+
+---
+
+## CELL 13 — Markdown (1.2 Season Stats)
+
+```
+### 1.2 Cumulative Season Statistics
+
+**What:** Total points, wins, and podiums earned so far in the current season —
+before this race.
+
+---
+
+**Why season-level stats in addition to rolling?**
+
+Rolling 3-race windows capture short-term momentum.
+Season-level stats capture something fundamentally different: **championship dominance**.
+
+Consider two drivers entering Race 15 of a season:
+
+| Driver | avg_finish_last_3 | wins_current_season |
+|--------|------------------|---------------------|
+| A      | 4.0              | 0                   |
+| B      | 4.0              | 9                   |
+
+Their recent form is identical — but Driver B is the runaway champion.
+The model cannot know this without season-level features.
+
+---
+
+**Technical implementation:**
+```
+groupby([driver, season]) → shift(1) → expanding() → sum() → fillna(0)
+```
+
+- `groupby([driver, season])`: resets to 0 at the start of each new season
+- `shift(1)`: excludes the current race
+- `expanding()`: accumulates all rounds from Round 1 to the previous race
+- `fillna(0)`: Round 1 has no prior races → correctly returns 0
+```
+
+---
+
+## CELL 14 — Code (Season Cumulative Stats)
+
+```python
+# ============================================================
+# FEATURE: driver_points_current_season
+# ============================================================
+# What:  Total championship points earned this season BEFORE this race.
+# Why:   Encodes championship standing. Leaders tend to maintain pace.
+#        Also encodes car competitiveness: points reflect car quality too.
+# Value at Round 1: 0 (correct — no races completed yet this season)
+# ============================================================
+
+df['driver_points_current_season'] = (
+    df.groupby(['driverId', 'season'])['points']
+    .transform(lambda x: x.shift(1).expanding().sum())
+    .fillna(0)
+)
+
+# ============================================================
+# FEATURE: driver_wins_current_season
+# ============================================================
+# What:  Total race wins in the current season before this race.
+# Why:   Captures dominance within the season. Distinct from avg_finish:
+#        A driver can have 0 wins but great avg_finish (consistent P3),
+#        or 2 wins and poor avg_finish (volatile: either wins or crashes).
+#        Both patterns are real and carry different predictive meaning.
+# ============================================================
+
+df['driver_wins_current_season'] = (
+    df.groupby(['driverId', 'season'])['win']
+    .transform(lambda x: x.shift(1).expanding().sum())
+    .fillna(0)
+)
+
+# ============================================================
+# FEATURE: driver_podiums_current_season
+# ============================================================
+# What:  Total top-3 finishes in the current season before this race.
+# Why:   Measures consistency at the front of the field.
+#        A driver with 12 podiums and 1 win is consistently fast.
+#        A driver with 1 podium and 1 win is capable but volatile.
+#        Both signals are meaningful — podiums capture consistency
+#        that wins alone miss.
+# ============================================================
+
+df['driver_podiums_current_season'] = (
+    df.groupby(['driverId', 'season'])['podium']
+    .transform(lambda x: x.shift(1).expanding().sum())
+    .fillna(0)
+)
+
+print('Season cumulative features created:')
+print('  ✅ driver_points_current_season')
+print('  ✅ driver_wins_current_season')
+print('  ✅ driver_podiums_current_season')
+```
+
+---
+
+## CELL 15 — Markdown (1.3 DNF Rate)
+
+```
+### 1.3 Historical DNF Rate
+
+**What:** The proportion of all career races (before this one) where
+the driver Did Not Finish (DNF = 1).
+
+---
+
+**What causes DNFs in F1?**
+- Mechanical failure from the car (engine, gearbox, hydraulics)
+- Driver error leading to a crash
+- Collision with another driver
+- Running out of fuel, tyres, or brakes
+
+**Why DNF rate is a meaningful feature:**
+DNF rate blends car reliability with driver risk profile. Even after controlling
+for car quality (via constructor features), some drivers have chronically higher
+retirement rates due to aggressive racecraft or accident-proneness.
+
+`driver_dnf_rate = 0.22` → 22% of historical starts ended in retirement.
+`driver_dnf_rate = 0.04` → Very reliable, rarely retires.
+
+The model uses this to adjust the probability of scoring points on any given race day.
+
+**Career-level (not season-level):**
+We use all available history — not per-season — because we want the driver's
+overall reliability pattern, not a seasonal anomaly that could mislead the model.
+```
+
+---
+
+## CELL 16 — Code (DNF Rate + Section 1 Summary)
+
+```python
+# ============================================================
+# FEATURE: driver_dnf_rate
+# ============================================================
+# What:  Proportion of all past career races ending in DNF.
+# Why:   Encodes the driver's historical tendency to retire from races.
+#        High DNF rate → higher probability of not scoring points.
+# Career-level: uses expanding() across ALL seasons, not per season.
+# Leak:  shift(1) excludes the outcome of the current race.
+# ============================================================
+
+df['driver_dnf_rate'] = (
+    df.groupby('driverId')['DNF']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+# ──────────────────────────────────────────────────────────
+# SECTION 1 COMPLETE — Summary Check
+# ──────────────────────────────────────────────────────────
+
+section1_features = [
+    'driver_avg_finish_last_3_races',
+    'driver_avg_points_last_3_races',
+    'driver_avg_grid_last_3_races',
+    'driver_points_current_season',
+    'driver_wins_current_season',
+    'driver_podiums_current_season',
+    'driver_dnf_rate'
+]
+
+print('=' * 65)
+print(f'SECTION 1 COMPLETE: {len(section1_features)} driver form features')
+print('=' * 65)
+print(f'{"Feature":<44} {"NaN":>8} {"NaN %":>8}')
+print('-' * 65)
+for col in section1_features:
+    n   = df[col].isna().sum()
+    pct = df[col].isna().mean() * 100
+    print(f'{col:<44} {n:>8,} {pct:>7.1f}%')
+print()
+print('NaN values are EXPECTED — they appear for the first few races')
+print('of each driver career. Will be filled in Section 5.')
+```
+
+---
+
+*→ Часть 3: Section 2 (Constructor) + Section 3 (Track Performance)*
+
+# `03_feature_engineering.ipynb` — Часть 3 из 4
+
+---
+
+## CELL 17 — Markdown (Section 2 Header)
+
+```
+---
+
+# 🏭 SECTION 2 — Constructor Form Features
+
+**Goal:** Capture the current performance and reliability of each constructor (team).
+
+---
+
+### Why Constructor Features?
+
+In Formula 1, the car accounts for roughly **70–80% of lap time**.
+The aerodynamic package, engine, and mechanical setup are provided by the
+constructor — not the driver. Even the best driver cannot win in a slow car.
+
+Constructor features allow the model to:
+1. Identify which teams are currently dominant (Red Bull 2022–2023, Mercedes 2014–2020)
+2. Distinguish "strong driver in a slow car" from "average driver in a fast car"
+3. Capture team-level momentum independent of individual driver changes
+
+---
+
+### Technical Challenge: Two Drivers Per Team
+
+Each constructor has 2 drivers per race. We cannot simply apply rolling
+calculations directly — we must:
+
+1. **Aggregate** both drivers' results into one constructor-level row per race
+2. **Compute** rolling/expanding features on that aggregated data
+3. **Merge** those features back to each individual driver row
+
+Both teammates will receive **identical** constructor features for that race.
+The team context is the same for both — only their individual features differ.
+
+---
+
+### Features to Create
+
+| Feature                              | Description                                          |
+|--------------------------------------|------------------------------------------------------|
+| `constructor_avg_finish_last_3_races`| Mean position of both cars over last 3 races         |
+| `constructor_avg_points_last_3_races`| Combined team points over last 3 races               |
+| `constructor_points_current_season`  | Total team championship points this season           |
+| `constructor_wins_current_season`    | Total team wins this season                          |
+| `constructor_reliability`            | Historical fraction of car starts that result in finish|
+```
+
+---
+
+## CELL 18 — Code (Constructor Race Summary)
+
+```python
+# ============================================================
+# STEP 1: CREATE CONSTRUCTOR-LEVEL RACE SUMMARY
+# ============================================================
+# Before computing rolling features, aggregate both drivers'
+# results into one row per constructor per race.
+#
+# Aggregation logic:
+#   constructor_avg_finish_race : mean of both drivers' finish positions
+#   constructor_points_race     : sum of both drivers' points scored
+#   constructor_dnf_race        : fraction of cars that DNF'd (0, 0.5, or 1.0)
+#   constructor_win_flag        : 1 if ANY driver from this team won the race
+# ============================================================
+
+constructor_race = (
+    df.groupby(['season', 'round', 'constructorId'])
+    .agg(
+        constructor_avg_finish_race = ('position', 'mean'),
+        constructor_points_race     = ('points',   'sum'),
+        constructor_dnf_race        = ('DNF',      'mean'),
+        constructor_win_flag        = ('win',      'max')
+    )
+    .reset_index()
+    .sort_values(['season', 'round'])
+    .reset_index(drop=True)
+)
+
+print(f'Constructor race summary shape: {constructor_race.shape}')
+print(f'Expected rows: {df.groupby(["season","round","constructorId"]).ngroups}')
+print()
+constructor_race.head(6)
+```
+
+---
+
+## CELL 19 — Code (Constructor Rolling Features)
+
+```python
+# ============================================================
+# STEP 2: COMPUTE CONSTRUCTOR ROLLING & CUMULATIVE FEATURES
+# ============================================================
+# Exact same leak-free technique as driver features:
+#   sort → shift(1) → rolling/expanding → fillna where needed
+# ============================================================
+
+# Average finish position of both team cars in last 3 races
+# Why: Captures the team's recent on-track performance trend.
+#      A team improving their avg_finish over 3 races is in
+#      an upswing — setup, updates, or strategy are improving.
+constructor_race['constructor_avg_finish_last_3_races'] = (
+    constructor_race.groupby('constructorId')['constructor_avg_finish_race']
+    .transform(lambda x: x.shift(1).rolling(3, min_periods=1).mean())
+)
+
+# Combined points scored by the team in last 3 races
+# Why: Total points is the official constructor championship metric.
+#      A team scoring 40+ pts per race is in a dominant phase.
+constructor_race['constructor_avg_points_last_3_races'] = (
+    constructor_race.groupby('constructorId')['constructor_points_race']
+    .transform(lambda x: x.shift(1).rolling(3, min_periods=1).mean())
+)
+
+# Total constructor championship points this season (before this race)
+# Why: Encodes the team's overall season standing.
+#      A team with 400 pts at Race 15 is in a fundamentally different
+#      position from one with 40 pts — resources, morale, development.
+constructor_race['constructor_points_current_season'] = (
+    constructor_race.groupby(['constructorId', 'season'])['constructor_points_race']
+    .transform(lambda x: x.shift(1).expanding().sum())
+    .fillna(0)
+)
+
+# Total wins for the constructor this season
+# Why: Distinct from points — captures dominance, not just consistency.
+#      A team with 10 wins in 14 races is in a different tier
+#      than one with 0 wins but many P2/P3 results.
+constructor_race['constructor_wins_current_season'] = (
+    constructor_race.groupby(['constructorId', 'season'])['constructor_win_flag']
+    .transform(lambda x: x.shift(1).expanding().sum())
+    .fillna(0)
+)
+
+# Constructor reliability: historical fraction of cars that FINISH
+# Formula: 1 - historical DNF rate
+# Why inverted: 'reliability' should read as higher = more reliable.
+#   Value 1.0 = all cars historically finish the race
+#   Value 0.5 = historically 50% of cars retire mid-race
+#   Value 0.0 = every car has historically retired (extreme)
+constructor_race['constructor_reliability'] = (
+    1 - constructor_race.groupby('constructorId')['constructor_dnf_race']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+print('Constructor rolling and cumulative features computed.')
+```
+
+---
+
+## CELL 20 — Code (Merge Constructor Features)
+
+```python
+# ============================================================
+# STEP 3: MERGE CONSTRUCTOR FEATURES BACK TO MAIN DATAFRAME
+# ============================================================
+# Left-join on (season, round, constructorId).
+# Both teammates in the same race receive IDENTICAL constructor
+# features — the team context is the same for both drivers.
+# ============================================================
+
+constructor_cols_to_merge = [
+    'season', 'round', 'constructorId',
+    'constructor_avg_finish_last_3_races',
+    'constructor_avg_points_last_3_races',
+    'constructor_points_current_season',
+    'constructor_wins_current_season',
+    'constructor_reliability'
+]
+
+df = df.merge(
+    constructor_race[constructor_cols_to_merge],
+    on=['season', 'round', 'constructorId'],
+    how='left'
+)
+
+section2_features = [
+    'constructor_avg_finish_last_3_races',
+    'constructor_avg_points_last_3_races',
+    'constructor_points_current_season',
+    'constructor_wins_current_season',
+    'constructor_reliability'
+]
+
+print(f'Constructor features merged. Dataset shape: {df.shape}')
+print()
+print('=' * 65)
+print(f'SECTION 2 COMPLETE: {len(section2_features)} constructor features')
+print('=' * 65)
+print(f'{"Feature":<48} {"NaN":>8}')
+print('-' * 65)
+for col in section2_features:
+    n = df[col].isna().sum()
+    print(f'{col:<48} {n:>8,}')
+```
+
+---
+
+## CELL 21 — Markdown (Section 3 Header)
+
+```
+---
+
+# 🏁 SECTION 3 — Track Performance Features
+
+**Goal:** Capture how well each driver historically performs at this specific circuit.
+
+---
+
+### Why Track Features Are Highly Predictive
+
+Formula 1 has 20+ circuits per season, each with distinct characteristics:
+
+| Circuit           | Key Characteristic                    | Who Excels                        |
+|-------------------|---------------------------------------|-----------------------------------|
+| Monaco            | Narrow, zero overtaking, ultra-precise| Technical drivers, experience     |
+| Spa-Francorchamps | High-speed, unpredictable weather     | Brave, adaptable drivers          |
+| Monza             | Flat-out speed, minimal downforce     | Power-unit advantage teams        |
+| Singapore         | Night race, extreme heat & humidity   | Smooth, endurance-focused drivers |
+| Suzuka            | High-speed technical flow             | Complete, all-around drivers      |
+
+Some drivers become circuit specialists over years of racing. Their historical
+records at specific tracks are among the most predictive signals available.
+
+**Real example:** Ayrton Senna won Monaco 6 times in 7 seasons. Lewis Hamilton
+won Silverstone 8 times. These patterns are not random — they reflect deep
+circuit-specific mastery that carries forward into future predictions.
+
+---
+
+### Technical Approach
+
+For each driver-circuit combination, compute an **expanding historical mean**
+across all previous visits to that circuit:
+
+```
+groupby([driver, circuit]) → shift(1) → expanding() → mean()
+```
+
+A driver visiting Spa for the 7th time brings 6 Spa-specific data points.
+This is far more informative than a global average.
+
+**NaN when:** driver has never raced at this circuit before.
+These NaN values will be filled with neutral defaults in Section 5.
+
+---
+
+### Features to Create
+
+| Feature                      | Description                                          |
+|------------------------------|------------------------------------------------------|
+| `driver_avg_finish_on_circuit` | Mean finishing position across all previous visits |
+| `driver_avg_points_on_circuit` | Mean points scored across all previous visits      |
+| `driver_best_finish_on_circuit`| Best (minimum) finish position ever achieved here  |
+| `driver_dnf_on_circuit`        | Historical DNF rate at this specific circuit       |
+| `driver_track_strength_score`  | Composite score: `21 - avg_finish` (higher = better)|
+```
+
+---
+
+## CELL 22 — Code (Track Performance Features)
+
+```python
+# ============================================================
+# TRACK PERFORMANCE FEATURES
+# ============================================================
+# groupby(['driverId', 'circuitId']): separate calculation for
+#   every unique driver-circuit combination independently.
+# shift(1): only data from PREVIOUS visits — no leakage.
+# expanding(): use ALL past visits (not a 3-race window).
+#
+# Why expanding() and not rolling(3) here?
+#   For track features we WANT all available history.
+#   A driver who has visited Monaco 8 times brings 8 data points
+#   of increasingly refined circuit knowledge. Capping at 3 would
+#   discard valuable historical signal.
+# ============================================================
+
+# Average finishing position on this circuit (all past visits)
+# Why: Core metric for circuit strength. A driver averaging P3
+#      at Spa across 6 visits is a proven Spa performer.
+df['driver_avg_finish_on_circuit'] = (
+    df.groupby(['driverId', 'circuitId'])['position']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+# Average points scored on this circuit
+# Why: Complementary to avg_finish — accounts for DNFs.
+#      A driver averaging P5 but with 2 DNFs has a lower avg_points
+#      than one averaging P6 with zero DNFs. Both signals matter.
+df['driver_avg_points_on_circuit'] = (
+    df.groupby(['driverId', 'circuitId'])['points']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+# Best (minimum) finishing position ever at this circuit
+# Why: Captures ceiling performance — the driver's best possible
+#      result here. A driver who won Monaco once has proven
+#      they CAN win there. That potential is a real signal.
+df['driver_best_finish_on_circuit'] = (
+    df.groupby(['driverId', 'circuitId'])['position']
+    .transform(lambda x: x.shift(1).expanding().min())
+)
+
+# Historical DNF rate at this specific circuit
+# Why: Some circuits are particularly punishing on specific components.
+#      Baku destroys tyres. Monaco punishes even small mistakes.
+#      Circuit-specific DNF tendency adds nuance beyond career DNF rate.
+df['driver_dnf_on_circuit'] = (
+    df.groupby(['driverId', 'circuitId'])['DNF']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+print('Track performance features created:')
+print('  ✅ driver_avg_finish_on_circuit')
+print('  ✅ driver_avg_points_on_circuit')
+print('  ✅ driver_best_finish_on_circuit')
+print('  ✅ driver_dnf_on_circuit')
+```
+
+---
+
+## CELL 23 — Markdown (Track Strength Score)
+
+```
+### Track Strength Score
+
+**What:** A single composite number summarizing a driver's historical
+strength at this circuit.
+
+**Formula:**
+```
+driver_track_strength_score = 21 - driver_avg_finish_on_circuit
+```
+
+**Why invert the scale?**
+
+In F1, lower position numbers are BETTER (P1 = win). This makes
+`avg_finish` counterintuitive as a "strength" metric — lower = stronger.
+
+By computing `21 - avg_finish`, we create an intuitive strength score:
+
+| avg_finish_on_circuit | track_strength_score | Meaning               |
+|-----------------------|----------------------|-----------------------|
+| 1.0                   | 20.0                 | Always wins here      |
+| 5.0                   | 16.0                 | Front-runner here     |
+| 10.5                  | 10.5                 | Average performer     |
+| 18.0                  | 3.0                  | Struggles here        |
+| NaN                   | NaN                  | Never raced here      |
+
+**Why 21?** With typically 20 cars on the grid:
+- `21 - 20 = 1` → minimum possible score
+- `21 - 1  = 20` → maximum possible score
+
+**How the model uses this:**
+The model learns rules like: *"When driver_track_strength_score > 16,
+podium probability increases significantly."* This is more interpretable
+than raw avg_finish and easier for tree-based models to split on.
+```
+
+---
+
+## CELL 24 — Code (Track Strength Score + Section 3 Summary)
+
+```python
+# ============================================================
+# FEATURE: driver_track_strength_score
+# ============================================================
+# What:  Composite strength score for this driver at this circuit.
+# Formula: 21 - driver_avg_finish_on_circuit
+# Range: 1 to 20 (higher = stronger historical performance here)
+# NaN:   when driver has never raced at this circuit (filled in Sec 5)
+# ============================================================
+
+df['driver_track_strength_score'] = 21.0 - df['driver_avg_finish_on_circuit']
+
+section3_features = [
+    'driver_avg_finish_on_circuit',
+    'driver_avg_points_on_circuit',
+    'driver_best_finish_on_circuit',
+    'driver_dnf_on_circuit',
+    'driver_track_strength_score'
+]
+
+print('  ✅ driver_track_strength_score')
+print()
+print('=' * 65)
+print(f'SECTION 3 COMPLETE: {len(section3_features)} track performance features')
+print('=' * 65)
+print(f'{"Feature":<44} {"NaN":>8} {"NaN %":>8}')
+print('-' * 65)
+for col in section3_features:
+    n   = df[col].isna().sum()
+    pct = df[col].isna().mean() * 100
+    print(f'{col:<44} {n:>8,} {pct:>7.1f}%')
+print()
+print('Note: NaN values are expected here — first visit to each circuit.')
+print('They will be filled with neutral defaults in Section 5.')
+```
+
+---
+
+*→ Часть 4: Section 4 (Teammate) + Section 5 (NaN) + Save + Summary*
+
+# `03_feature_engineering.ipynb` — Часть 4 из 4
+
+---
+
+## CELL 25 — Markdown (Section 4 Header)
+
+```
+---
+
+# 🤝 SECTION 4 — Teammate Comparison Features
+
+**Goal:** Measure how a driver performs relative to their teammate on the same car.
+
+---
+
+### Why This Is the Purest Driver Metric
+
+Both drivers in a team race in technically **identical machinery**.
+The same engine, the same aerodynamic package, the same tyres.
+Any performance difference between them must come from the drivers themselves —
+their skill, racecraft, setup intuition, and mental resilience.
+
+This technique is used by professional F1 analysts to isolate driver talent
+from car advantage. It is the closest thing to a controlled experiment in racing.
+
+**Real-world example — 2014–2016 Mercedes:**
+Lewis Hamilton and Nico Rosberg both drove the dominant Mercedes W05/W06/W07.
+The car was clearly the best on the grid. Yet Hamilton won ~60% of their
+head-to-head matchups. That 60% isolates Hamilton's individual driving advantage
+from the car advantage both drivers shared equally.
+
+---
+
+### Features to Create
+
+| Feature                         | Range          | Interpretation                              |
+|---------------------------------|----------------|---------------------------------------------|
+| `driver_beats_teammate_rate`    | 0.0 to 1.0     | >0.5 = typically outperforms teammate       |
+| `driver_vs_teammate_finish_gap` | Negative to +  | Negative = typically finishes ahead of teammate|
+
+---
+
+### Technical Approach
+
+1. **Self-join** the dataset on `(season, round, constructorId)` to pair
+   each driver with their teammate in the same race
+2. Compute per-race beat/gap metrics
+3. Calculate **historical expanding means** with `shift(1)` for leak prevention
+4. Merge back to the main dataframe
+```
+
+---
+
+## CELL 26 — Code (Teammate Self-Join)
+
+```python
+# ============================================================
+# STEP 1: SELF-JOIN TO CREATE DRIVER-TEAMMATE PAIRS
+# ============================================================
+# We join the dataframe with itself on (season, round, constructorId).
+# This gives us rows like:
+#   driverId=hamilton | teammate_id=rosberg | same race, same team
+#
+# Why a self-join?
+#   This is a standard database technique for finding pairs within
+#   the same group. Each driver gets matched with everyone else
+#   from their constructor in that race.
+# ============================================================
+
+base_cols = ['season', 'round', 'constructorId', 'driverId', 'position']
+
+teammate_df = (
+    df[base_cols].merge(
+        df[base_cols].rename(columns={
+            'driverId': 'teammate_id',
+            'position': 'teammate_position'
+        }),
+        on=['season', 'round', 'constructorId']
+    )
+)
+
+# Remove self-comparisons (driver matched with themselves)
+teammate_df = teammate_df[teammate_df.driverId != teammate_df.teammate_id].copy()
+
+# ============================================================
+# Handle edge case: constructors with 3+ drivers in a race
+# ============================================================
+# Mid-season driver replacements sometimes create 3-driver teams.
+# Example: driver A races rounds 1-8, driver B replaces from round 9,
+#          but driver C is a one-off substitute at round 6.
+# Solution: keep only the alphabetically first teammate per driver
+#           per race for a deterministic, consistent pairing.
+teammate_df = teammate_df.sort_values(
+    ['season', 'round', 'driverId', 'teammate_id']
+)
+teammate_df = teammate_df.drop_duplicates(
+    subset=['season', 'round', 'driverId'],
+    keep='first'
+)
+
+# ============================================================
+# STEP 2: COMPUTE PER-RACE COMPARISON METRICS
+# ============================================================
+
+# beat_teammate: 1 if driver finished AHEAD of teammate
+# In F1, lower position number = better result (P1 beats P2)
+teammate_df['beat_teammate'] = (
+    teammate_df.position < teammate_df.teammate_position
+).astype(int)
+
+# gap_vs_teammate: driver_position - teammate_position
+# Negative value = driver finished AHEAD (better) — favorable
+# Positive value = driver finished BEHIND (worse) — unfavorable
+# Example: driver P3, teammate P6 → gap = 3 - 6 = -3 (driver ahead)
+teammate_df['gap_vs_teammate'] = (
+    teammate_df.position - teammate_df.teammate_position
+)
+
+# Sort chronologically before rolling calculations
+teammate_df = teammate_df.sort_values(['season', 'round']).reset_index(drop=True)
+
+print(f'Teammate matchup table created: {teammate_df.shape}')
+print()
+print(teammate_df[[
+    'season', 'round', 'driverId', 'teammate_id',
+    'position', 'teammate_position', 'beat_teammate', 'gap_vs_teammate'
+]].head(6).to_string(index=False))
+```
+
+---
+
+## CELL 27 — Code (Historical Teammate Rates)
+
+```python
+# ============================================================
+# STEP 3: COMPUTE HISTORICAL TEAMMATE COMPARISON RATES
+# ============================================================
+# Same leak-free pattern as all previous features:
+#   groupby(driver) → shift(1) → expanding() → mean()
+#
+# Note: we group by driverId (not by driverId + teammate_id)
+# because the driver changes teammates across seasons and teams.
+# We want their OVERALL historical beat rate across all teammates,
+# not just against one specific person.
+# ============================================================
+
+# Historical rate of finishing ahead of teammate (all past races)
+# Example: 0.68 = driver finished ahead of their teammate
+#          in 68% of all historical head-to-head matchups
+teammate_df['driver_beats_teammate_rate'] = (
+    teammate_df.groupby('driverId')['beat_teammate']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+# Historical average finishing gap vs teammate
+# Example: -2.3 = on average finishes 2.3 positions AHEAD of teammate
+# Example: +1.5 = on average finishes 1.5 positions BEHIND teammate
+teammate_df['driver_vs_teammate_finish_gap'] = (
+    teammate_df.groupby('driverId')['gap_vs_teammate']
+    .transform(lambda x: x.shift(1).expanding().mean())
+)
+
+# ============================================================
+# STEP 4: MERGE TEAMMATE FEATURES BACK TO MAIN DATAFRAME
+# ============================================================
+
+df = df.merge(
+    teammate_df[[
+        'season', 'round', 'driverId',
+        'driver_beats_teammate_rate',
+        'driver_vs_teammate_finish_gap'
+    ]],
+    on=['season', 'round', 'driverId'],
+    how='left'
+)
+
+section4_features = [
+    'driver_beats_teammate_rate',
+    'driver_vs_teammate_finish_gap'
+]
+
+print(f'Teammate features merged. Dataset shape: {df.shape}')
+print()
+print('=' * 65)
+print(f'SECTION 4 COMPLETE: {len(section4_features)} teammate features')
+print('=' * 65)
+for col in section4_features:
+    n   = df[col].isna().sum()
+    pct = df[col].isna().mean() * 100
+    print(f'  {col}: {n:,} NaN ({pct:.1f}%)')
+```
+
+---
+
+## CELL 28 — Markdown (Section 5 NaN)
+
+```
+---
+
+# 🧹 SECTION 5 — NaN Analysis & Filling
+
+## Why NaN Values Exist
+
+Every NaN in our engineered features is **expected and intentional**.
+They arise directly from the leak-free `shift(1)` pattern:
+
+| Situation                            | Features Affected                          |
+|--------------------------------------|--------------------------------------------|
+| Driver's very first race             | All rolling and expanding driver features  |
+| First race of each season            | Season cumulative → already 0 ✅           |
+| First ever visit to a circuit        | All 5 track performance features           |
+| Driver's first race with new teammate| Both teammate comparison features          |
+
+---
+
+## Why We Must Fill Every NaN
+
+Machine learning models **cannot process NaN values**. Any NaN will:
+- Crash tree-based models (XGBoost, Random Forest) during fitting
+- Be silently dropped by linear models, shrinking the training set
+- Produce completely unreliable predictions for those rows at inference time
+
+---
+
+## Filling Philosophy
+
+> *"If we have no history for this driver, team, or circuit —
+>  assume neutral / average performance. Make no strong assumptions."*
+
+| Feature Group              | Fill Value          | Reasoning                                |
+|----------------------------|---------------------|------------------------------------------|
+| Driver form (avg finish)   | Global mean finish  | No history → assume average              |
+| Driver form (avg points)   | `0`                 | New drivers → conservative estimate      |
+| Driver form (avg grid)     | Global mean grid    | No history → assume average              |
+| Driver DNF rate            | `0.10`              | ~10% is a reasonable modern F1 baseline  |
+| Season cumulative stats    | `0`                 | Already handled at creation ✅           |
+| Constructor (avg finish)   | Global mean finish  | Same neutral logic                       |
+| Constructor (avg points)   | `0`                 | Conservative                             |
+| Constructor reliability    | `0.85`              | Reasonable baseline for a modern F1 team |
+| Track avg/best finish      | Global mean finish  | No circuit history → assume average      |
+| Track avg points           | `0`                 | Conservative                             |
+| Track DNF rate             | `0.10`              | Same as career baseline                  |
+| Track strength score       | `21 - global_mean`  | Consistent with avg_finish fill          |
+| Teammate beat rate         | `0.5`               | Neutral: no prior advantage assumed      |
+| Teammate gap               | `0.0`               | Neutral: no prior gap assumed            |
+```
+
+---
+
+## CELL 29 — Code (NaN Analysis)
+
+```python
+# ============================================================
+# NaN ANALYSIS: Full picture across all 19 engineered features
+# ============================================================
+
+all_new_features = (
+    section1_features
+    + section2_features
+    + section3_features
+    + section4_features
+)
+
+print('=' * 70)
+print('NaN ANALYSIS — All 19 Engineered Features')
+print('=' * 70)
+print(f'{"Feature":<46} {"NaN Count":>12} {"NaN %":>8}')
+print('-' * 70)
+
+for col in all_new_features:
+    n   = df[col].isna().sum()
+    pct = df[col].isna().mean() * 100
+    print(f'{col:<46} {n:>12,} {pct:>7.1f}%')
+
+print('-' * 70)
+total = df[all_new_features].isna().sum().sum()
+print(f'{"TOTAL":<46} {total:>12,}')
+print()
+nan_free = (~df[all_new_features].isna().any(axis=1)).sum()
+print(f'Rows with zero NaN in features: {nan_free:,} / {len(df):,}')
+```
+
+---
+
+## CELL 30 — Code (Fill NaN Values)
+
+```python
+# ============================================================
+# FILL NaN VALUES WITH NEUTRAL DEFAULTS
+# ============================================================
+
+# Compute global reference values (used as "unknown = average")
+global_avg_finish = df.position.mean()
+global_avg_grid   = df.grid.mean()
+
+print('Reference values:')
+print(f'  Global average finishing position: {global_avg_finish:.2f}')
+print(f'  Global average grid position:      {global_avg_grid:.2f}')
+print()
+
+# ─── DRIVER FORM FEATURES ──────────────────────────────────
+# Unknown recent form → assume average/neutral performance
+df['driver_avg_finish_last_3_races'].fillna(global_avg_finish, inplace=True)
+df['driver_avg_points_last_3_races'].fillna(0,                 inplace=True)
+df['driver_avg_grid_last_3_races'].fillna(global_avg_grid,     inplace=True)
+df['driver_dnf_rate'].fillna(0.10,                             inplace=True)
+# Season cumulative stats already filled with 0 at creation time ✅
+
+# ─── CONSTRUCTOR FEATURES ──────────────────────────────────
+df['constructor_avg_finish_last_3_races'].fillna(global_avg_finish, inplace=True)
+df['constructor_avg_points_last_3_races'].fillna(0,                 inplace=True)
+df['constructor_reliability'].fillna(0.85,                          inplace=True)
+# Season cumulative stats already filled with 0 at creation time ✅
+
+# ─── TRACK PERFORMANCE FEATURES ────────────────────────────
+# No circuit history → assume driver performs at global average
+df['driver_avg_finish_on_circuit'].fillna(global_avg_finish,       inplace=True)
+df['driver_avg_points_on_circuit'].fillna(0,                       inplace=True)
+df['driver_best_finish_on_circuit'].fillna(global_avg_finish,      inplace=True)
+df['driver_dnf_on_circuit'].fillna(0.10,                           inplace=True)
+df['driver_track_strength_score'].fillna(21.0 - global_avg_finish, inplace=True)
+
+# ─── TEAMMATE COMPARISON FEATURES ──────────────────────────
+# No teammate history → assume perfectly neutral performance
+df['driver_beats_teammate_rate'].fillna(0.5,    inplace=True)
+df['driver_vs_teammate_finish_gap'].fillna(0.0, inplace=True)
+
+# ─── VERIFY ────────────────────────────────────────────────
+remaining = df[all_new_features].isna().sum().sum()
+print('NaN filling complete!')
+print(f'Remaining NaN in engineered features: {remaining}')
+assert remaining == 0, 'ERROR: NaN values still remain!'
+print('All 19 features are fully populated. Ready for ML.')
+```
+
+---
+
+## CELL 31 — Code (Final Dataset Overview)
+
+```python
+# ============================================================
+# FINAL DATASET OVERVIEW
+# ============================================================
+
+# Drop the temporary helper column — it was only used internally
+# for building cumulative season stats. It is not a feature.
+df.drop(columns=['win'], inplace=True)
+
+print('=' * 70)
+print('FINAL DATASET OVERVIEW')
+print('=' * 70)
+print(f'Total rows:       {df.shape[0]:,}')
+print(f'Total columns:    {df.shape[1]}')
+print(f'Original columns: {original_column_count}')
+print(f'New features:     {len(all_new_features)}')
+print()
+
+groups = {
+    'Driver Form (7)':         section1_features,
+    'Constructor Form (5)':    section2_features,
+    'Track Performance (5)':   section3_features,
+    'Teammate Comparison (2)': section4_features
+}
+
+for group_name, features in groups.items():
+    print(f'  {group_name}:')
+    for f in features:
+        print(f'      {f}')
+    print()
+
+print(f'Total NaN remaining in full dataset: {df.isnull().sum().sum()}')
+```
+
+---
+
+## CELL 32 — Markdown (Save)
+
+```
+---
+
+## 💾 Save the Feature-Engineered Dataset
+
+The complete dataset is saved to `data/processed/f1_features_2018_2026.csv`.
+
+This file becomes the **single input** for every remaining notebook:
+
+| Notebook | Uses These Features For |
+|----------|------------------------|
+| **04 — EDA** | Visualizing F1 patterns, correlation analysis |
+| **05 — Model Training** | Training all ML models |
+| **06 — Model Evaluation** | Evaluating predictions |
+| **07 — Driver Cards** | Generating driver profiles and circuit heatmaps |
+```
+
+---
+
+## CELL 33 — Code (Save)
+
+```python
+# ============================================================
+# SAVE FEATURE-ENGINEERED DATASET
+# ============================================================
+
+output_path = '../data/processed/f1_features_2018_2026.csv'
+df.to_csv(output_path, index=False)
+
+# Reload and verify shape matches — confirms successful write
+df_verify = pd.read_csv(output_path)
+ok = df_verify.shape == df.shape
+
+print('Dataset saved successfully!')
+print(f'  File:         {output_path}')
+print(f'  Shape:        {df.shape[0]:,} rows x {df.shape[1]} columns')
+print(f'  Verification: {"✅ PASS" if ok else "❌ FAIL — shape mismatch!"}')
+```
+
+---
+
+## CELL 34 — Markdown (Summary)
+
+```
+---
+
+# 📋 Notebook Summary
+
+## What Was Accomplished
+
+This notebook created **19 predictive features** that transform raw race
+results into rich, contextual signals ready for machine learning.
+
+---
+
+## Complete Feature Reference
+
+| #  | Feature                          | Type     | What It Measures                    |
+|----|----------------------------------|----------|-------------------------------------|
+| 1  | driver_avg_finish_last_3_races   | Rolling  | Recent finishing momentum           |
+| 2  | driver_avg_points_last_3_races   | Rolling  | Recent scoring rate                 |
+| 3  | driver_avg_grid_last_3_races     | Rolling  | Recent qualifying pace              |
+| 4  | driver_points_current_season     | Season   | Championship points so far          |
+| 5  | driver_wins_current_season       | Season   | Wins so far this season             |
+| 6  | driver_podiums_current_season    | Season   | Podiums so far this season          |
+| 7  | driver_dnf_rate                  | Career   | Historical DNF proportion           |
+| 8  | constructor_avg_finish_last_3    | Rolling  | Team's recent car performance       |
+| 9  | constructor_avg_points_last_3    | Rolling  | Team's recent scoring               |
+| 10 | constructor_points_current_season| Season   | Team championship standing          |
+| 11 | constructor_wins_current_season  | Season   | Team wins this season               |
+| 12 | constructor_reliability          | Career   | Fraction of car starts that finish  |
+| 13 | driver_avg_finish_on_circuit     | Circuit  | Mean finish at this circuit         |
+| 14 | driver_avg_points_on_circuit     | Circuit  | Mean points at this circuit         |
+| 15 | driver_best_finish_on_circuit    | Circuit  | Best ever result at this circuit    |
+| 16 | driver_dnf_on_circuit            | Circuit  | DNF rate at this circuit            |
+| 17 | driver_track_strength_score      | Circuit  | Composite strength (higher = better)|
+| 18 | driver_beats_teammate_rate       | Teammate | Rate of outperforming teammate      |
+| 19 | driver_vs_teammate_finish_gap    | Teammate | Avg position gap vs teammate        |
+
+---
+
+## Key Engineering Decisions
+
+**1. Leak-free by design.**
+Every feature uses `shift(1)` before any calculation.
+Without this, training metrics are meaningless and the model fails in production.
+
+**2. Sort chronologically first — always.**
+`df.sort_values(['season', 'round'])` is the mandatory first step.
+All rolling and expanding calculations depend on correct chronological order.
+
+**3. Two-step constructor features.**
+Aggregate both drivers to team level → compute rolling features →
+merge back. This pattern is reusable in any multi-entry-per-group sports dataset.
+
+**4. Self-join for teammate comparison.**
+A database-style self-join on the team-race key isolates driver skill
+from car advantage — a core technique in professional F1 analysis.
+
+**5. Meaningful NaN fills.**
+Context-appropriate neutral defaults rather than zeros everywhere:
+global averages for unknown history, 0.5 for unknown win rates,
+0.85 for unknown reliability. Each fill value has a logical justification.
+
+---
+
+## Output
+
+**`data/processed/f1_features_2018_2026.csv`**
+
+---
+
+## Next Step — Notebook 04: Exploratory Data Analysis
+
+With 19 features available, we now visualize them to:
+- Confirm they capture real F1 patterns (sanity check)
+- Discover which features correlate most strongly with race outcomes
+- Explore questions like: which circuits have the strongest track specialists?
+- Generate visual assets that will be reused in the Driver Cards (Notebook 07)
+```
+
+---
+
+**Notebook 03 завершён.** Итого: **34 ячейки** — 15 Markdown + 18 Code + 1 Code (quick look). Все 19 фич, полная документация, leak-free дизайн, NaN-стратегия, verify-шаги. Готов к Notebook 04 — EDA.
