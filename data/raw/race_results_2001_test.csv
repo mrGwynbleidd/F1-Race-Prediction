@@ -1,0 +1,374 @@
+season,round,race_name,race_date,circuit_id,circuit_name,circuit_country,circuit_locality,driver_id,driver_code,driver_number,driver_given_name,driver_family_name,driver_nationality,constructor_id,constructor_name,constructor_nationality,grid,position,position_text,points,laps,status
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,1,1,10,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,6,2,2,6,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,2,3,3,4,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,10,4,4,3,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,4,5,5,2,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,13,6,6,1,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,panis,,,Olivier,Panis,French,bar,BAR,British,9,7,7,0,58,Finished
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,burti,,,Luciano,Burti,Brazilian,jaguar,Jaguar,British,21,8,8,0,57,+1 Lap
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,alesi,,,Jean,Alesi,French,prost,Prost,French,14,9,9,0,57,+1 Lap
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,15,10,10,0,57,+1 Lap
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,12,11,11,0,57,+1 Lap
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,19,12,12,0,56,+2 Laps
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,17,13,13,0,55,+3 Laps
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,16,14,R,0,52,Electrical
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,11,15,R,0,40,Engine
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,7,16,R,0,38,Engine
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,3,17,R,0,25,Suspension
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,5,18,R,0,4,Collision
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,8,19,R,0,4,Collision
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,20,R,0,3,Battery
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,18,21,R,0,2,Spun off
+2001,1,Australian Grand Prix,2001-03-04,albert_park,Albert Park Grand Prix Circuit,Australia,Melbourne,mazzacane,,,Gastón,Mazzacane,Argentine,prost,Prost,French,20,22,R,0,0,Brakes
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,1,1,10,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,2,2,2,6,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,8,3,3,4,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,9,4,4,3,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,3,5,5,2,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,4,6,6,1,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,18,7,7,0,55,Finished
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,5,8,8,0,54,+1 Lap
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,alesi,,,Jean,Alesi,French,prost,Prost,French,13,9,9,0,54,+1 Lap
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,burti,,,Luciano,Burti,Brazilian,jaguar,Jaguar,British,15,10,10,0,54,+1 Lap
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,17,11,11,0,53,+2 Laps
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,mazzacane,,,Gastón,Mazzacane,Argentine,prost,Prost,French,19,12,12,0,53,+2 Laps
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,21,13,13,0,52,+3 Laps
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,20,14,14,0,51,+4 Laps
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,16,15,R,0,31,Fuel pressure
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,7,16,R,0,3,Spun off
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,11,17,R,0,3,Spun off
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,22,18,R,0,3,Spun off
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,6,19,R,0,3,Spun off
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,12,20,R,0,3,Water leak
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,panis,,,Olivier,Panis,French,bar,BAR,British,10,21,R,0,1,Oil leak
+2001,2,Malaysian Grand Prix,2001-03-18,sepang,Sepang International Circuit,Malaysia,Kuala Lumpur,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,14,22,R,0,0,Driveshaft
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,5,1,1,10,71,Finished
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,2,2,6,71,Finished
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,9,3,3,4,70,+1 Lap
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,panis,,,Olivier,Panis,French,bar,BAR,British,11,4,4,3,70,+1 Lap
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,7,5,5,2,70,+1 Lap
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,18,6,6,1,70,+1 Lap
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,12,7,7,0,70,+1 Lap
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,alesi,,,Jean,Alesi,French,prost,Prost,French,15,8,8,0,70,+1 Lap
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,9,9,0,68,+3 Laps
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,20,10,10,0,64,+7 Laps
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,8,11,11,0,63,Electrical
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,10,12,R,0,55,Spun off
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,2,13,R,0,54,Spun off
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,mazzacane,,,Gastón,Mazzacane,Argentine,prost,Prost,French,21,14,R,0,54,Clutch
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,13,15,R,0,52,Spun off
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,4,16,R,0,38,Collision
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,17,17,R,0,37,Collision
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,burti,,,Luciano,Burti,Brazilian,jaguar,Jaguar,British,14,18,R,0,30,Engine
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,19,19,R,0,25,Electrical
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,16,20,R,0,15,Hydraulics
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,6,21,R,0,2,Collision
+2001,3,Brazilian Grand Prix,2001-04-01,interlagos,Autódromo José Carlos Pace,Brazil,São Paulo,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,3,22,R,0,0,Stalled
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,3,1,1,10,62,Finished
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,1,2,2,6,62,Finished
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,6,3,3,4,62,Finished
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,2,4,4,3,62,Finished
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,5,5,5,2,62,Finished
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,9,6,6,1,61,+1 Lap
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,12,7,7,0,61,+1 Lap
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,panis,,,Olivier,Panis,French,bar,BAR,British,8,8,8,0,61,+1 Lap
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,alesi,,,Jean,Alesi,French,prost,Prost,French,14,9,9,0,61,+1 Lap
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,16,10,10,0,60,+2 Laps
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,burti,,,Luciano,Burti,Brazilian,jaguar,Jaguar,British,15,11,11,0,60,+2 Laps
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,21,12,12,0,60,+2 Laps
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,13,R,0,50,Engine
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,7,14,R,0,48,Clutch
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,13,15,R,0,42,Engine
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,19,16,R,0,31,Engine
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,11,17,R,0,30,Engine
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,mazzacane,,,Gastón,Mazzacane,Argentine,prost,Prost,French,20,18,R,0,28,Engine
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,4,19,R,0,24,Suspension
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,10,20,R,0,17,Steering
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,17,21,R,0,6,Exhaust
+2001,4,San Marino Grand Prix,2001-04-15,imola,Autodromo Enzo e Dino Ferrari,Italy,Imola,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,18,22,R,0,5,Brakes
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,1,1,10,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,12,2,2,6,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,7,3,3,4,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,6,4,4,3,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,3,5,5,2,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,10,6,6,1,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,panis,,,Olivier,Panis,French,bar,BAR,British,11,7,7,0,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,9,8,8,0,65,Finished
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,2,9,9,0,64,Clutch
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,alesi,,,Jean,Alesi,French,prost,Prost,French,15,10,10,0,64,+1 Lap
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,14,11,11,0,64,+1 Lap
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,17,12,12,0,63,+2 Laps
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,18,13,13,0,63,+2 Laps
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,19,14,14,0,63,+2 Laps
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,21,15,15,0,62,+3 Laps
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,16,16,0,62,+3 Laps
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,4,17,R,0,49,Suspension
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,13,18,R,0,48,Engine
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,5,19,R,0,20,Brakes
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,16,20,R,0,8,Fuel pressure
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,20,21,R,0,5,Collision
+2001,5,Spanish Grand Prix,2001-04-29,catalunya,Circuit de Barcelona-Catalunya,Spain,Barcelona,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,8,22,R,0,5,Collision
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,7,1,1,10,71,Finished
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,2,2,6,71,Finished
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,4,3,3,4,71,Finished
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,9,4,4,3,71,Finished
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,panis,,,Olivier,Panis,French,bar,BAR,British,10,5,5,2,71,Finished
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,16,6,6,1,70,+1 Lap
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,13,7,7,0,70,+1 Lap
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,12,8,8,0,70,+1 Lap
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,6,9,9,0,69,+2 Laps
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,alesi,,,Jean,Alesi,French,prost,Prost,French,20,10,10,0,69,+2 Laps
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,17,11,11,0,69,+2 Laps
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,21,12,R,0,60,Engine
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,14,13,R,0,48,Transmission
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,2,14,R,0,41,Hydraulics
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,18,15,R,0,38,Gearbox
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,16,R,0,25,Gearbox
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,15,17,R,0,17,Hydraulics
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,5,18,D,0,14,Disqualified
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,3,19,R,0,10,Brakes
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,19,20,R,0,3,Engine
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,8,21,R,0,1,Transmission
+2001,6,Austrian Grand Prix,2001-05-13,red_bull_ring,Red Bull Ring,Austria,Spielberg,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,11,22,R,0,0,Gearbox
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,2,1,1,10,78,Finished
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,4,2,2,6,78,Finished
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,6,3,3,4,78,Finished
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,9,4,4,3,78,Finished
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,1,5,5,2,77,+1 Lap
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,alesi,,,Jean,Alesi,French,prost,Prost,French,11,6,6,1,77,+1 Lap
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,17,7,7,0,77,+1 Lap
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,19,8,8,0,77,+1 Lap
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,20,9,9,0,76,+2 Laps
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,15,10,10,0,73,+5 Laps
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,5,11,R,0,57,Electrical
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,12,R,0,56,Transmission
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,18,13,R,0,54,Gearbox
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,13,14,R,0,49,Accident
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,10,15,R,0,43,Gearbox
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,8,16,R,0,30,Hydraulics
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,21,17,R,0,24,Gearbox
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,14,18,R,0,18,Hydraulics
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,3,19,R,0,15,Steering
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,panis,,,Olivier,Panis,French,bar,BAR,British,12,20,R,0,13,Steering
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,7,21,R,0,2,Spun off
+2001,7,Monaco Grand Prix,2001-05-27,monaco,Circuit de Monaco,Monaco,Monte Carlo,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,16,22,R,0,0,Collision
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,2,1,1,10,69,Finished
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,2,2,6,69,Finished
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,8,3,3,4,69,Finished
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,7,4,4,3,69,Finished
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,alesi,,,Jean,Alesi,French,prost,Prost,French,16,5,5,2,69,Finished
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,14,6,6,1,68,+1 Lap
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,zonta,ZON,,Ricardo,Zonta,Brazilian,jordan,Jordan,Irish,12,7,7,0,68,+1 Lap
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,19,8,8,0,68,+1 Lap
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,21,9,9,0,66,+3 Laps
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,13,10,10,0,65,Brakes
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,4,11,11,0,63,Brakes
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,3,12,R,0,54,Engine
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,panis,,,Olivier,Panis,French,bar,BAR,British,6,13,R,0,38,Brakes
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,9,14,R,0,34,Halfshaft
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,17,15,R,0,24,Engine
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,10,16,R,0,19,Accident
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,5,17,R,0,19,Spun off
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,20,18,R,0,17,Oil leak
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,22,19,R,0,7,Transmission
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,11,20,R,0,1,Collision
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,15,21,R,0,1,Collision
+2001,8,Canadian Grand Prix,2001-06-10,villeneuve,Circuit Gilles Villeneuve,Canada,Montreal,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,18,22,R,0,0,Collision
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,1,1,10,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,3,2,2,6,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,5,3,3,4,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,2,4,4,3,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,4,5,5,2,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,6,6,6,1,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,12,7,7,0,67,Finished
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,16,8,8,0,66,+1 Lap
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,11,9,9,0,66,+1 Lap
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,9,10,10,0,66,+1 Lap
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,15,11,11,0,66,+1 Lap
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,17,12,12,0,65,+2 Laps
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,20,13,13,0,65,+2 Laps
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,21,14,14,0,65,+2 Laps
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,alesi,,,Jean,Alesi,French,prost,Prost,French,14,15,15,0,64,Spun off
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,19,16,R,0,58,Engine
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,10,17,R,0,54,Driveshaft
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,8,18,R,0,48,Spun off
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,7,19,R,0,44,Transmission
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,18,20,R,0,29,Gearbox
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,panis,,,Olivier,Panis,French,bar,BAR,British,13,21,R,0,23,Electrical
+2001,9,European Grand Prix,2001-06-24,nurburgring,Nürburgring,Germany,Nürburg,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,22,R,0,7,Electrical
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,2,1,1,10,72,Finished
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,1,2,2,6,72,Finished
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,8,3,3,4,72,Finished
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,3,4,4,3,72,Finished
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,5,5,5,2,72,Finished
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,9,6,6,1,71,+1 Lap
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,13,7,7,0,71,+1 Lap
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,7,8,8,0,71,+1 Lap
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,panis,,,Olivier,Panis,French,bar,BAR,British,11,9,9,0,71,+1 Lap
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,15,10,10,0,71,+1 Lap
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,16,11,11,0,71,+1 Lap
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,alesi,,,Jean,Alesi,French,prost,Prost,French,19,12,12,0,70,+2 Laps
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,18,13,13,0,70,+2 Laps
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,14,14,14,0,70,+2 Laps
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,15,15,0,69,+3 Laps
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,17,16,16,0,68,Fuel pressure
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,21,17,17,0,65,Engine
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,12,18,R,0,54,Engine
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,6,19,R,0,52,Engine
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,20,20,R,0,17,Engine
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,10,21,R,0,5,Engine
+2001,10,French Grand Prix,2001-07-01,magny_cours,Circuit de Nevers Magny-Cours,France,Magny Cours,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,4,22,W,0,0,Gearbox
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,2,1,1,10,60,Finished
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,2,2,6,60,Finished
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,6,3,3,4,60,Finished
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,8,4,4,3,60,Finished
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,7,5,5,2,59,+1 Lap
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,9,6,6,1,59,+1 Lap
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,frentzen,,,Heinz-Harald,Frentzen,German,jordan,Jordan,Irish,5,7,7,0,59,+1 Lap
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,12,8,8,0,59,+1 Lap
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,15,9,9,0,59,+1 Lap
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,17,10,10,0,58,+2 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,alesi,,,Jean,Alesi,French,prost,Prost,French,14,11,11,0,58,+2 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,13,12,12,0,58,+2 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,19,13,13,0,58,+2 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,20,14,14,0,58,+2 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,18,15,15,0,58,+2 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,21,16,16,0,57,+3 Laps
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,10,17,R,0,36,Engine
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,16,18,R,0,6,Engine
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,3,19,R,0,2,Suspension
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,4,20,R,0,0,Collision
+2001,11,British Grand Prix,2001-07-15,silverstone,Silverstone Circuit,UK,Silverstone,panis,,,Olivier,Panis,French,bar,BAR,British,11,21,R,0,0,Collision
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,2,1,1,10,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,6,2,2,6,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,12,3,3,4,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,17,4,4,3,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,18,5,5,2,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,alesi,,,Jean,Alesi,French,prost,Prost,French,14,6,6,1,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,panis,,,Olivier,Panis,French,bar,BAR,British,13,7,7,0,45,Finished
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,19,8,8,0,44,+1 Lap
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,20,9,9,0,44,+1 Lap
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,21,10,10,0,44,+1 Lap
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,10,11,R,0,34,Hydraulics
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,5,12,R,0,27,Engine
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,13,R,0,26,Gearbox
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,1,14,R,0,24,Engine
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,4,15,R,0,23,Fuel pressure
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,16,16,R,0,23,Spun off
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,8,17,R,0,16,Halfshaft
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,11,18,R,0,16,Fuel pressure
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,3,19,R,0,13,Engine
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,zonta,ZON,,Ricardo,Zonta,Brazilian,jordan,Jordan,Irish,15,20,R,0,7,Collision
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,7,21,R,0,0,Collision
+2001,12,German Grand Prix,2001-07-29,hockenheimring,Hockenheimring,Germany,Hockenheim,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,9,22,R,0,0,Collision
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,1,1,10,77,Finished
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,3,2,2,6,77,Finished
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,2,3,3,4,77,Finished
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,4,4,4,3,77,Finished
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,6,5,5,2,77,Finished
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,7,6,6,1,76,+1 Lap
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,9,7,7,0,76,+1 Lap
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,8,8,8,0,76,+1 Lap
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,10,9,9,0,75,+2 Laps
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,alesi,,,Jean,Alesi,French,jordan,Jordan,Irish,12,10,10,0,75,+2 Laps
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,13,11,11,0,75,+2 Laps
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,21,12,12,0,74,+3 Laps
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,15,13,R,0,67,Engine
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,frentzen,,,Heinz-Harald,Frentzen,German,prost,Prost,French,16,14,R,0,63,Spun off
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,15,R,0,63,Oil pressure
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,panis,,,Olivier,Panis,French,bar,BAR,British,11,16,R,0,58,Electrical
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,5,17,R,0,53,Hydraulics
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,18,18,R,0,37,Brakes
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,17,19,R,0,34,Spun off
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,20,20,R,0,11,Spun off
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,19,21,R,0,8,Spun off
+2001,13,Hungarian Grand Prix,2001-08-19,hungaroring,Hungaroring,Hungary,Budapest,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,14,22,R,0,0,Spun off
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,3,1,1,10,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,9,2,2,6,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,8,3,3,4,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,7,4,4,3,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,5,5,5,2,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,alesi,,,Jean,Alesi,French,jordan,Jordan,Irish,13,6,6,1,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,2,7,7,0,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,6,8,8,0,36,Finished
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,frentzen,,,Heinz-Harald,Frentzen,German,prost,Prost,French,4,9,9,0,35,+1 Lap
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,19,10,10,0,35,+1 Lap
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,panis,,,Olivier,Panis,French,bar,BAR,British,11,11,11,0,35,+1 Lap
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,21,12,12,0,35,+1 Lap
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,marques,,,Tarso,Marques,Brazilian,minardi,Minardi,Italian,22,13,13,0,31,+5 Laps
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,16,14,R,0,31,Engine
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,15,15,R,0,17,Spun off
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,1,16,R,0,1,Engine
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,10,17,R,0,1,Collision
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,14,18,R,0,0,Collision
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,12,19,R,0,0,Transmission
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,17,20,R,0,0,Collision
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,burti,,,Luciano,Burti,Brazilian,prost,Prost,French,18,21,R,0,0,Collision
+2001,14,Belgian Grand Prix,2001-09-02,spa,Circuit de Spa-Francorchamps,Belgium,Spa,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,20,22,R,0,0,Gearbox
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,1,1,1,10,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,2,2,2,6,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,4,3,3,4,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,3,4,4,3,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,10,5,5,2,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,15,6,6,1,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,9,7,7,0,53,Finished
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,alesi,,,Jean,Alesi,French,jordan,Jordan,Irish,16,8,8,0,52,+1 Lap
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,panis,,,Olivier,Panis,French,bar,BAR,British,17,9,9,0,52,+1 Lap
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,14,10,10,0,52,+1 Lap
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,8,11,11,0,52,+1 Lap
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,enge,,,Tomáš,Enge,Czech,prost,Prost,French,20,12,12,0,52,+1 Lap
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,21,13,13,0,51,+2 Laps
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,18,14,R,0,46,Crankshaft
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,yoong,,,Alex,Yoong,Malaysian,minardi,Minardi,Italian,22,15,R,0,44,Spun off
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,frentzen,,,Heinz-Harald,Frentzen,German,prost,Prost,French,12,16,R,0,28,Gearbox
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,19,17,R,0,25,Fuel pressure
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,7,18,R,0,19,Gearbox
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,13,19,R,0,14,Engine
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,6,20,R,0,6,Engine
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,11,21,R,0,4,Engine
+2001,15,Italian Grand Prix,2001-09-16,monza,Autodromo Nazionale di Monza,Italy,Monza,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,5,22,R,0,0,Collision
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,4,1,1,10,73,Finished
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,2,2,6,73,Finished
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,7,3,3,4,73,Finished
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,8,4,4,3,73,Finished
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,14,5,5,2,73,Finished
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,6,6,6,1,73,Finished
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,alesi,,,Jean,Alesi,French,jordan,Jordan,Irish,9,7,7,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,12,8,8,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,10,9,9,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,frentzen,,,Heinz-Harald,Frentzen,German,prost,Prost,French,15,10,10,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,panis,,,Olivier,Panis,French,bar,BAR,British,13,11,11,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,16,12,12,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,19,13,13,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,enge,,,Tomáš,Enge,Czech,prost,Prost,French,21,14,14,0,72,+1 Lap
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,5,15,15,0,71,Engine
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,18,16,R,0,45,Suspension
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,20,17,R,0,44,Engine
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,3,18,R,0,38,Hydraulics
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,yoong,,,Alex,Yoong,Malaysian,minardi,Minardi,Italian,22,19,R,0,38,Gearbox
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,2,20,R,0,36,Spun off
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,17,21,R,0,36,Driveshaft
+2001,16,United States Grand Prix,2001-09-30,indianapolis,Indianapolis Motor Speedway,USA,Indianapolis,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,11,22,R,0,2,Driveshaft
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,michael_schumacher,MSC,,Michael,Schumacher,German,ferrari,Ferrari,Italian,1,1,1,10,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,montoya,MON,,Juan,Pablo Montoya,Colombian,williams,Williams,British,2,2,2,6,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,coulthard,COU,,David,Coulthard,British,mclaren,McLaren,British,7,3,3,4,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,hakkinen,,,Mika,Häkkinen,Finnish,mclaren,McLaren,British,5,4,4,3,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,barrichello,BAR,,Rubens,Barrichello,Brazilian,ferrari,Ferrari,Italian,4,5,5,2,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,ralf_schumacher,SCH,,Ralf,Schumacher,German,williams,Williams,British,3,6,6,1,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,button,BUT,22,Jenson,Button,British,benetton,Benetton,Italian,9,7,7,0,53,Finished
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,trulli,TRU,,Jarno,Trulli,Italian,jordan,Jordan,Irish,8,8,8,0,52,+1 Lap
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,heidfeld,HEI,,Nick,Heidfeld,German,sauber,Sauber,Swiss,10,9,9,0,52,+1 Lap
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,villeneuve,VIL,,Jacques,Villeneuve,Canadian,bar,BAR,British,14,10,10,0,52,+1 Lap
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,alonso,ALO,14,Fernando,Alonso,Spanish,minardi,Minardi,Italian,18,11,11,0,52,+1 Lap
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,frentzen,,,Heinz-Harald,Frentzen,German,prost,Prost,French,15,12,12,0,52,+1 Lap
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,panis,,,Olivier,Panis,French,bar,BAR,British,17,13,13,0,51,+2 Laps
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,bernoldi,,,Enrique,Bernoldi,Brazilian,arrows,Arrows,British,20,14,14,0,51,+2 Laps
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,verstappen,,,Jos,Verstappen,Dutch,arrows,Arrows,British,21,15,15,0,51,+2 Laps
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,yoong,,,Alex,Yoong,Malaysian,minardi,Minardi,Italian,22,16,16,0,50,+3 Laps
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,fisichella,FIS,,Giancarlo,Fisichella,Italian,benetton,Benetton,Italian,6,17,17,0,47,Gearbox
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,rosa,DLR,,Pedro,de la Rosa,Spanish,jaguar,Jaguar,British,16,18,R,0,45,Oil leak
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,enge,,,Tomáš,Enge,Czech,prost,Prost,French,19,19,R,0,42,Brakes
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,irvine,,,Eddie,Irvine,British,jaguar,Jaguar,British,13,20,R,0,24,Fuel rig
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,raikkonen,RAI,7,Kimi,Räikkönen,Finnish,sauber,Sauber,Swiss,12,21,R,0,5,Collision
+2001,17,Japanese Grand Prix,2001-10-14,suzuka,Suzuka Circuit,Japan,Suzuka,alesi,,,Jean,Alesi,French,jordan,Jordan,Irish,11,22,R,0,5,Collision
